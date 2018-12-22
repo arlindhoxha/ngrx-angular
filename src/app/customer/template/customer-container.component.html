@@ -1,0 +1,5 @@
+<customers
+  [customers]="customers$ | async"
+  (addCustomer)="dispatchAddCustomer($event)"
+  (removeCustomer)="dispatchRemoveCustomer($event)">
+</customers>
