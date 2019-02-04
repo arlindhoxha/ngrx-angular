@@ -38,6 +38,10 @@ export class CustomerService {
     return this.http.post('http://localhost:8082/api/customer/add', customer);
   }
 
+  editCustomer(customer: Customer): Observable<any> {
+    return this.http.put('http://localhost:8082/api/customer/update', customer);
+  }
+
   removeCustomer(id: string): Observable<any> {
     return this.http.delete(`http://localhost:8082/api/customer/remove/${id}`, httpOptions);
   }

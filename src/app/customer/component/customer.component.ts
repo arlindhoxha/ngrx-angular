@@ -1,17 +1,21 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {createCustomer, Customer} from "../models/customer.model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Customer} from "../models/customer.model";
+import {MatDialog} from "@angular/material";
+import {AddCustomerDialogComponent} from "./add-customer-dialog.component";
+import {EditCustomerDialogComponent} from "./edit-customer-dialog.component";
 
 @Component({
   selector: 'customers',
   templateUrl: '../template/customer.component.html',
-  styleUrls: ['../style/customer.component.css']
+  styleUrls: ['../style/customer.component.styl']
 })
-export class CustomerComponent implements OnInit {
+export class CustomerComponent {
   @Input()
   customers: Customer[];
   @Output()
-  addCustomer: EventEmitter<Customer> = new EventEmitter<Customer>()
+  addCustomer: EventEmitter<Customer> = new EventEmitter<Customer>();
+  @Output()
+  editCustomer: EventEmitter<Customer> = new EventEmitter<Customer>();
   @Output()
   removeCustomer: EventEmitter<Customer> = new EventEmitter<Customer>();
 
@@ -22,42 +26,49 @@ export class CustomerComponent implements OnInit {
     'actions'
   ];
 
-  form: FormGroup;
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      phone: ['', [Validators.required]]
-    });
-  }
-
-  dispatchAddCustomer(customer: Customer) {
-    this.addCustomer.emit(customer);
-  }
+  constructor(private dialog: MatDialog) {}
 
   dispatchRemoveCustomer(customer: Customer) {
     this.removeCustomer.emit(customer);
   }
 
-  submit(): void {
-    if (!this.form.valid) {
-      return;
-    }
-    const customer = this.getCustomerFromForm(this.form.value);
-    this.dispatchAddCustomer(customer);
-    this.form.reset();
-  }
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddCustomerDialogComponent, {
+      width: '500px',
+      height: '400px'
+    });
 
-  private getCustomerFromForm(form: any): Customer {
-    return createCustomer({
-      firstName: form.firstName,
-      lastName: form.lastName,
-      telephone: form.phone
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.dispatchAddCustomer(result);
+      } else {
+        console.log("Customer was null");
+      }
     });
   }
 
+  openEditDialog(customer: Customer): void {
+    const dialogRef = this.dialog.open(EditCustomerDialogComponent, {
+      width: '500px',
+      height: '400px',
+      data: customer
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.dispatchEditCustomer(result);
+      } else {
+        console.log("Customer was null");
+      }
+    });
+  }
+
+  private dispatchAddCustomer(customer: Customer) {
+    this.addCustomer.emit(customer);
+  }
+
+  private dispatchEditCustomer(customer: Customer) {
+    this.editCustomer.emit(customer);
+  }
 
 }

@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-.add-customer-form {
+.customer-form {
   flex-grow: 1;
   flex-basis: auto;
   border: 1px solid black;
@@ -12,6 +12,7 @@
 .fields {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 input {
@@ -24,8 +25,22 @@ input {
   flex-grow: 1;
   flex-basis: auto;
   border: 1px solid black;
+
+  .customers-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 40px;
+    .add-icon {
+      align-self: center;
+    }
+  }
+
+  .customers-table {
+    width: 100%;
+  }
 }
 
-.customers-table {
-  width: 100%;
+.icon-styles {
+  cursor: pointer;
 }

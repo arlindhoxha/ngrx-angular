@@ -3,7 +3,7 @@ import {AppState} from "../../app.state";
 import {select, Store} from "@ngrx/store";
 import {Observable, Subject} from "rxjs";
 import {Customer} from "../models/customer.model";
-import {AddCustomerAction, RemoveCustomerAction} from "../reducers/customer.reducer";
+import {AddCustomerAction, EditCustomerAction, RemoveCustomerAction} from "../reducers/customer.reducer";
 
 @Component({
   selector: 'customer-container',
@@ -30,6 +30,10 @@ export class CustomerContainerComponent implements OnDestroy, OnInit {
 
   dispatchAddCustomer(customer: Customer) {
     this.store.dispatch(new AddCustomerAction(customer));
+  }
+
+  dispatchEditCustomer(customer: Customer) {
+    this.store.dispatch(new EditCustomerAction(customer));
   }
 
   dispatchRemoveCustomer(customer: Customer) {
