@@ -6,12 +6,23 @@ import {CoreModule} from "../core/core.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CustomerContainerComponent} from "./component/customer-container.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule} from "@angular/material";
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatTableModule
+} from "@angular/material";
+import {AddCustomerDialogComponent} from "./component/add-customer-dialog.component";
+import {EditCustomerDialogComponent} from "./component/edit-customer-dialog.component";
 
 @NgModule({
   declarations: [
     CustomerContainerComponent,
-    CustomerComponent
+    CustomerComponent,
+    AddCustomerDialogComponent,
+    EditCustomerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -22,11 +33,18 @@ import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatT
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   exports: [
     CustomerContainerComponent,
-    CustomerComponent
+    CustomerComponent,
+    AddCustomerDialogComponent,
+    EditCustomerDialogComponent
+  ],
+  entryComponents: [
+    AddCustomerDialogComponent,
+    EditCustomerDialogComponent
   ]
 })
 export class CustomerModule {

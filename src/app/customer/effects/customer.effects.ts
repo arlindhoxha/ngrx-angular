@@ -5,10 +5,10 @@ import {CustomerService} from "../services/customer.service";
 import {APP_INIT} from "../../core/redux";
 import {catchError, map, switchMap} from "rxjs/operators";
 import {
-  ADD_CUSTOMER,
-  AddCustomerAction, AddCustomerFailureAction,
-  AddCustomerSuccessAction,
-  LoadCustomersAction, REMOVE_CUSTOMER, RemoveCustomerAction, RemoveCustomerFailureAction, RemoveCustomerSuccessAction
+  LoadCustomersAction,
+  ADD_CUSTOMER, AddCustomerAction, AddCustomerFailureAction, AddCustomerSuccessAction,
+  EDIT_CUSTOMER, EditCustomerAction, EditCustomerFailureAction, EditCustomerSuccessAction,
+  REMOVE_CUSTOMER, RemoveCustomerAction, RemoveCustomerFailureAction, RemoveCustomerSuccessAction
 } from "../reducers/customer.reducer";
 import {of} from "rxjs";
 
@@ -34,6 +34,21 @@ export class CustomerEffects {
         }),
         catchError((error) => {
           return of(new AddCustomerFailureAction(error));
+        })
+      );
+    })
+  );
+
+  @Effect()
+  editCustomer$ = this.actions$.pipe(
+    ofType(EDIT_CUSTOMER),
+    switchMap(({ payload }: EditCustomerAction) => {
+      return this.customerService.editCustomer(payload).pipe(
+        map(() => {
+          return new EditCustomerSuccessAction(payload);
+        }),
+        catchError((error) => {
+          return of(new EditCustomerFailureAction(error));
         })
       );
     })

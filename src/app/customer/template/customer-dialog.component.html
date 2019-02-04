@@ -1,0 +1,39 @@
+<div class="customer-form">
+  <h3 *ngIf="data == undefined">Add Customer</h3>
+  <h3 *ngIf="data !== undefined">Edit Customer</h3>
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="fields">
+      <mat-form-field>
+        <input matInput
+               type="text"
+               id="firstName"
+               formControlName="firstName"
+               placeholder="First Name"
+               required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput
+               type="text"
+               id="lastName"
+               formControlName="lastName"
+               placeholder="Last Name"
+               required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput
+               type="text"
+               id="phone"
+               formControlName="phone"
+               placeholder="Phone"
+               required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-button type="submit" class="btn btn-success">Submit</button>
+      <button mat-button (click)="cancel()" class="btn btn-success">Cancel</button>
+    </div>
+  </form>
+</div>
