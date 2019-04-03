@@ -16,13 +16,16 @@ import {
 } from "@angular/material";
 import {AddCustomerDialogComponent} from "./component/add-customer-dialog.component";
 import {EditCustomerDialogComponent} from "./component/edit-customer-dialog.component";
+import {CustomerDetailComponent} from "./component/customer-detail.component";
+import {CustomerRoutingModule} from "./customer-routing.module";
 
 @NgModule({
   declarations: [
     CustomerContainerComponent,
     CustomerComponent,
     AddCustomerDialogComponent,
-    EditCustomerDialogComponent
+    EditCustomerDialogComponent,
+    CustomerDetailComponent
   ],
   imports: [
     CommonModule,
@@ -34,13 +37,15 @@ import {EditCustomerDialogComponent} from "./component/edit-customer-dialog.comp
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    CustomerRoutingModule,
   ],
   exports: [
     CustomerContainerComponent,
     CustomerComponent,
     AddCustomerDialogComponent,
-    EditCustomerDialogComponent
+    EditCustomerDialogComponent,
+    CustomerDetailComponent
   ],
   entryComponents: [
     AddCustomerDialogComponent,
