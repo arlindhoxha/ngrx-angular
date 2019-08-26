@@ -16,9 +16,9 @@
       &-items {
         display: flex;
         .sidenav-toolbar-link {
-          padding: 10px;
-          a {
-            text-decoration: none;
+          button {
+            font-size: 15px;
+            font-weight: bold;
           }
         }
       }
