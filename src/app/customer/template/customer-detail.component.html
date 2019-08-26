@@ -1,0 +1,9 @@
+<div *ngIf="customer$ | async as customer">
+  <ul>
+    <li>ID: {{customer.id}}</li>
+    <li>First Name: {{customer.firstName}}</li>
+    <li>Last Name: {{customer.lastName}}</li>
+    <li>Phone: {{customer.telephone}}</li>
+  </ul>
+  <button (click)="goToCustomers()">Back</button>
+</div>

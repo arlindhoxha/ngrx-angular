@@ -1,32 +1,36 @@
 <div class="customers-container">
   <div class="customers-table-container" *ngIf="customers">
     <div class="customers-table-header">
-      <h3>Customers</h3>
+      <div class="table-title">Customers</div>
       <mat-icon class="add-icon icon-styles" (click)="openAddDialog()">add</mat-icon>
     </div>
     <table class="customers-table" mat-table [dataSource]="customers">
       <!-- First Name Column -->
       <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let customer">{{customer.firstName}}</td>
+        <th class="customers-table-col-header" mat-header-cell *matHeaderCellDef>First Name</th>
+        <td class="customers-table-col-cell" mat-cell *matCellDef="let customer">
+          <a [routerLink]="['/customer', customer.id]">
+            {{customer.firstName}}
+          </a>
+        </td>
       </ng-container>
 
       <!-- Last Name Column -->
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let customer">{{customer.lastName}}</td>
+        <th class="customers-table-col-header" mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td class="customers-table-col-cell" mat-cell *matCellDef="let customer">{{customer.lastName}}</td>
       </ng-container>
 
       <!-- Phone Column -->
       <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef>Phone</th>
-        <td mat-cell *matCellDef="let customer">{{customer.telephone}}</td>
+        <th class="customers-table-col-header" mat-header-cell *matHeaderCellDef>Phone</th>
+        <td class="customers-table-col-cell" mat-cell *matCellDef="let customer">{{customer.telephone}}</td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let customer">
+        <th class="customers-table-col-header" mat-header-cell *matHeaderCellDef>Actions</th>
+        <td class="customers-table-col-cell" mat-cell *matCellDef="let customer">
           <mat-icon class="icon-styles" (click)="openEditDialog(customer)">edit</mat-icon>
           <mat-icon class="icon-styles" (click)="dispatchRemoveCustomer(customer)">delete</mat-icon>
         </td>

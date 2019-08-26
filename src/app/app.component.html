@@ -1,2 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<customer-container></customer-container>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav role="navigation" class="sidenav">
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-toolbar">
+      <div class="app-sidenav-toolbar-title">
+        <span>Material Test</span>
+      </div>
+      <div class="sidenav-toolbar-items">
+        <div class="sidenav-toolbar-link">
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </div>
+        <div class="sidenav-toolbar-link">
+          <a routerLink="/customers" routerLinkActive="active">Customers</a>
+        </div>
+      </div>
+    </mat-toolbar>
+    <main class="router-container">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
