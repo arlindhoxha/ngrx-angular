@@ -1,10 +1,12 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {select, Store} from "@ngrx/store";
+import {map, switchMap} from "rxjs/operators";
+import {Observable} from "rxjs";
+import * as _ from 'lodash';
+
 import {Customer} from "../models/customer.model";
 import {AppState} from "../../app.state";
-import {select, Store} from "@ngrx/store";
-import {filter, map, switchMap} from "rxjs/operators";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'customer-detail',
@@ -22,11 +24,7 @@ export class CustomerDetailComponent implements OnInit {
       switchMap((params: ParamMap) => {
         return this.store.pipe(
           select('customers', 'customers'),
-          map((customer, index) => {
-            if (customer[index].id === params.get("id")) {
-              return customer[index];
-            }
-          })
+          map((customers) => _.find(customers, {id: params.get('id')}))
         )
       })
     );

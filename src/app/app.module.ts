@@ -6,11 +6,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {CustomerModule} from "./customer/customer.module";
 import {CoreModule} from "./core/core.module";
 import {AppStateModule} from "./app.state";
-import {CustomerComponent} from "./customer/component/customer.component";
-import {RouterModule, Routes} from "@angular/router";
 import {HomeModule} from "./home/home.module";
-import {HomeComponent} from "./home/component/home.component";
 import {AppRoutingModule} from "./app-routing.module";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,12 +18,15 @@ import {AppRoutingModule} from "./app-routing.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppStateModule,
     CoreModule.forRoot(),
     CustomerModule.forRoot(),
     HomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   bootstrap: [AppComponent]
 })

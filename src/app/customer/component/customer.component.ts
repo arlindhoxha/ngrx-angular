@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Customer} from "../models/customer.model";
-import {MatDialog} from "@angular/material";
+import { MatDialog } from "@angular/material/dialog";
 import {AddCustomerDialogComponent} from "./add-customer-dialog.component";
 import {EditCustomerDialogComponent} from "./edit-customer-dialog.component";
 

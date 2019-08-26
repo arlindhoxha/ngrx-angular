@@ -2,6 +2,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home/component/home.component";
 import {NgModule} from "@angular/core";
 import {CustomerContainerComponent} from "./customer/component/customer-container.component";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
   { path: 'customers', component: CustomerContainerComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true }
