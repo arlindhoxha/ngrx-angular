@@ -1,18 +1,22 @@
+@import "../../core/styles/constants";
+
 .customers-container {
   display: flex;
-  border: 1px solid black;
+  //border: 1px solid black;
 
   .customers-table-container {
     width: 100%;
-    border: 1px solid black;
+    //border: 1px solid black;
 
     .customers-table-header {
+      background-color: $primary;
       display: flex;
       padding: 10px;
       justify-content: space-between;
       align-items: center;
       .table-title {
         align-self: baseline;
+        color: white;
         font-size: 18px;
         font-weight: bold;
       }
@@ -20,6 +24,10 @@
 
     .customers-table {
       width: 100%;
+    }
+
+    .add-icon {
+      color: white;
     }
 
     .icon-styles {

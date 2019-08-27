@@ -1,0 +1,10 @@
+@import "../../core/styles/button";
+
+.customer-form {
+  width: 100%;
+  .customer-form-fields {
+    .customer-form-input {
+      width: 100% !important;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "constants";
+
+@include mat-core();
+
+$app-theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+@include angular-material-theme($app-theme);
+@include mat-sidenav-theme($app-theme);
+@include mat-toolbar-theme($app-theme);
+@include mat-button-theme($app-theme);
