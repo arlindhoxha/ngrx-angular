@@ -1,0 +1,13 @@
+@import "constants";
+
+.btn {
+  margin-right: 6px;
+}
+
+.btn-success {
+  background-color: $button-primary;
+}
+
+.btn-failure {
+  background-color: $button-secondary;
+}

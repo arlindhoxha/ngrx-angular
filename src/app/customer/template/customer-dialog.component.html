@@ -3,7 +3,7 @@
   <h3 *ngIf="data !== undefined">Edit Customer</h3>
   <form [formGroup]="form" (submit)="submit()">
     <div class="customer-form-fields">
-      <mat-form-field appearance="outline">
+      <mat-form-field class="customer-form-input">
         <input matInput
                type="text"
                id="firstName"
@@ -11,8 +11,7 @@
                placeholder="First Name"
                required>
       </mat-form-field>
-
-      <mat-form-field appearance="outline">
+      <mat-form-field class="customer-form-input">
         <input matInput
                type="text"
                id="lastName"
@@ -20,8 +19,7 @@
                placeholder="Last Name"
                required>
       </mat-form-field>
-
-      <mat-form-field appearance="outline">
+      <mat-form-field class="customer-form-input">
         <input matInput
                type="text"
                id="phone"
@@ -30,10 +28,9 @@
                required>
       </mat-form-field>
     </div>
-
     <div>
-      <button mat-button type="submit" class="btn btn-success">Submit</button>
-      <button mat-button (click)="cancel()" class="btn btn-success">Cancel</button>
+      <button mat-raised-button type="submit" class="btn btn-success">Submit</button>
+      <button mat-raised-button (click)="cancel()" class="btn btn-failure">Cancel</button>
     </div>
   </form>
 </div>

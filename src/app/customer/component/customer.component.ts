@@ -7,7 +7,7 @@ import {EditCustomerDialogComponent} from "./edit-customer-dialog.component";
 @Component({
   selector: 'customers',
   templateUrl: '../template/customer.component.html',
-  styleUrls: ['../style/customer.component.styl']
+  styleUrls: ['../style/customer.component.scss']
 })
 export class CustomerComponent {
   @Input()

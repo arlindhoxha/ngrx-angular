@@ -6,7 +6,7 @@ import {createCustomer, Customer} from "../models/customer.model";
 @Component({
   selector: 'add-customer-dialog',
   templateUrl: '../template/customer-dialog.component.html',
-  styleUrls: []
+  styleUrls: ['../style/customer-dialog.component.scss']
 })
 export class AddCustomerDialogComponent implements OnInit {
 
