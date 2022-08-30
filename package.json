@@ -31,7 +31,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.15",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "node-sass": "^4.13.0",
     "nonce": "^1.0.4",
     "npm": "^6.13.4",
